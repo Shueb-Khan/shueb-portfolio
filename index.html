@@ -10,18 +10,22 @@
 <body>
   <!-- Header: Profile -->
   <header class="top-bar">
-    <div class="profile">
-      <img src="Profile.png" alt="Shueb Khan" class="profile-img"/>
-      <h1>Shueb Khan</h1>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+   <div class="top-bar">
+  <div class="profile">
+    <img src="Profile.png" alt="Profile" class="profile-img">
+    <h1>Shueb Khan</h1>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
   </header>
 
   <!-- Hero Section -->
@@ -58,5 +62,10 @@
 </div>
   <p>© 2025 Shueb Khan</p>
   </footer>
+  <script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
+  }
+</script>
 </body>
 </html>
