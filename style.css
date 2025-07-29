@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #0b1c2d; /* Deep navy blue */
+  background-color: #0b1c2d;
   color: #ffffff;
 }
 
@@ -26,7 +26,7 @@ body {
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  border: 3px solid #1da1f2; /* accent blue */
+  border: 3px solid #1da1f2;
 }
 
 .name-container {
@@ -46,14 +46,13 @@ body {
   }
 }
 
-/* Navigation (desktop) */
+/* Navigation */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
 
-/* Force nav-link text white (desktop + mobile) */
 .nav-links a {
   color: #ffffff;
   text-decoration: none;
@@ -64,15 +63,15 @@ body {
   color: #1da1f2;
 }
 
-/* Hamburger icon (mobile) */
+/* Hamburger (mobile) */
 .menu-toggle {
   font-size: 2rem;
   cursor: pointer;
-  display: none; /* hidden on desktop */
-  color: #ffffff; /* keep icon white */
+  display: none;
+  color: #ffffff;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   text-align: center;
   padding: 5rem 2rem;
@@ -101,12 +100,14 @@ body {
   text-align: center;
   background-color: #112b45;
 }
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
+
 .project-card {
   background-color: #183a58;
   padding: 1.5rem;
@@ -115,7 +116,6 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Force project links white */
 .project-card a {
   color: #ffffff;
   text-decoration: none;
@@ -137,6 +137,7 @@ footer {
   position: relative;
   z-index: 10;
 }
+
 .social-icons {
   margin-top: 1.5rem;
   display: flex;
@@ -144,16 +145,18 @@ footer {
   gap: 2rem;
   animation: fadeUp 1s ease-out forwards;
 }
+
 .social-icons a {
   font-size: 2.2rem;
   color: #ffffff;
   transition: color 0.3s ease;
 }
+
 .social-icons a:hover {
   color: #1da1f2;
 }
 
-/* Animation */
+/* Keyframe */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -165,7 +168,7 @@ footer {
   }
 }
 
-/* Hero tweaks for mobile (≤768px) */
+/* Mobile Hero Tweaks */
 @media (max-width: 768px) {
   .hero {
     padding: 3rem 1rem;
@@ -182,7 +185,7 @@ footer {
   }
 }
 
-/* Projects Section on Phones (≤480px) */
+/* Tiny Phone Projects */
 @media (max-width: 480px) {
   #projects {
     padding: 2rem 1rem;
@@ -196,21 +199,19 @@ footer {
   .project-card p {
     font-size: 0.9rem;
   }
-  /* make social icons horizontal on small phones */
   .social-icons {
     flex-direction: row;
     gap: 1rem;
   }
 }
 
-/* ─── Mobile-Only Nav / Hamburger (≤768px) ─── */
+/* Mobile Nav */
 @media (max-width: 768px) {
   header.top-bar {
     flex-direction: row;
     align-items: center;
     padding: 1rem 1.5rem;
   }
-
   .profile-nav-wrapper {
     position: relative;
     display: flex;
@@ -218,7 +219,6 @@ footer {
     justify-content: space-between;
     width: 100%;
   }
-
   .menu-toggle {
     display: block;
     position: absolute;
@@ -227,7 +227,6 @@ footer {
     transform: translateY(-50%);
     z-index: 1000;
   }
-
   .nav-links {
     display: none;
     position: absolute;
@@ -241,11 +240,9 @@ footer {
     gap: 0.75rem;
     z-index: 999;
   }
-
   .nav-links.show {
     display: flex;
   }
-
   .profile {
     gap: 0.5rem;
   }
@@ -256,5 +253,26 @@ footer {
   .name-container {
     font-size: 1.2rem;
     gap: 0.4rem;
+  }
+}
+
+/* ─── Desktop-Only Nav Reposition & Enlarge (≥769px) ─── */
+@media (min-width: 769px) {
+  header.top-bar {
+    position: relative; /* allow absolute children */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 50%;
+    right: 2rem;                /* adjust to match your marked position */
+    transform: translateY(-50%);
+    display: flex;
+    gap: 3rem;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 }
