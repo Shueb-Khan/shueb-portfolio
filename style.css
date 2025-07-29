@@ -52,11 +52,24 @@ body {
   display: flex;
   gap: 2rem;
 }
+
+/* Force nav-link text white (desktop + mobile) */
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1da1f2;
+}
+
+/* Hamburger icon (mobile) */
 .menu-toggle {
   font-size: 2rem;
   cursor: pointer;
   display: none; /* hidden on desktop */
-  color: white;
+  color: #ffffff; /* keep icon white */
 }
 
 /* Hero Section */
