@@ -258,3 +258,43 @@ footer {
     gap: 1rem;
   }
 }
+
+
+  @media (max-width: 768px) {
+    .profile-nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      position: relative;
+    }
+
+    .profile {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .name-container {
+      font-size: 1.2rem;
+      flex-direction: row;
+      gap: 0.4rem;
+    }
+
+    .menu-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+    }
+
+    .nav-links {
+      top: 55px;
+      right: 10px;
+    }
+  }
