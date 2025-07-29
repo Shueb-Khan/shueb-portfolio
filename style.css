@@ -38,6 +38,7 @@ body {
   font-weight: bold;
   gap: 0.5rem;
 }
+
 @media (min-width: 769px) {
   .name-container {
     font-size: 2.5rem;
@@ -54,8 +55,8 @@ body {
 .menu-toggle {
   font-size: 2rem;
   cursor: pointer;
-  display: none;
-  color: #ffffff;
+  display: none; /* hidden on desktop */
+  color: white;
 }
 
 /* Hero Section */
@@ -64,10 +65,12 @@ body {
   padding: 5rem 2rem;
   background-color: #0b1c2d;
 }
+
 .highlight {
   color: #1da1f2;
   font-weight: bold;
 }
+
 .cta {
   display: inline-block;
   margin-top: 1rem;
@@ -97,12 +100,6 @@ body {
   border: 1px solid #29557b;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-.project-card a {
-  display: inline-block;
-  margin-top: 1rem;
-  text-decoration: none;
-  color: #1da1f2;
 }
 
 /* Footer & Socials */
@@ -143,14 +140,8 @@ footer {
   }
 }
 
-/* Responsive Tweaks — Mobile Friendly */
-
-/* Header & Hero tweaks for ≤768px */
+/* Hero tweaks for mobile (≤768px) */
 @media (max-width: 768px) {
-  .top-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .hero {
     padding: 3rem 1rem;
   }
@@ -166,7 +157,7 @@ footer {
   }
 }
 
-/* Projects Section on Phones */
+/* Projects Section on Phones (≤480px) */
 @media (max-width: 480px) {
   #projects {
     padding: 2rem 1rem;
@@ -186,28 +177,35 @@ footer {
   }
 }
 
-/* ─── Mobile-Only Nav (≤768px) ─── */
+/* ─── Mobile-Only Nav / Hamburger (≤768px) ─── */
 @media (max-width: 768px) {
-  /* make wrapper the positioning context */
-  header .profile-nav-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
+  /* keep header in a single row */
+  header.top-bar {
+    flex-direction: row;
     align-items: center;
     padding: 1rem 1.5rem;
   }
 
-  /* show & pin the hamburger */
+  /* anchor everything */
+  .profile-nav-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* show & pin the hamburger icon */
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 1rem;
+    top: 50%;
     right: 1rem;
+    transform: translateY(-50%);
     z-index: 1000;
-    color: #ffffff;
   }
 
-  /* hide by default, drop just under header */
+  /* hide links by default, drop just under the wrapper */
   .nav-links {
     display: none;
     position: absolute;
@@ -227,20 +225,16 @@ footer {
     display: flex;
   }
 
-  /* shrink profile pic & name to preserve space */
+  /* shrink profile pic & name */
   .profile {
-    flex-direction: row;
-    align-items: center;
     gap: 0.5rem;
   }
   .profile-img {
     width: 50px;
     height: 50px;
-    margin: 0;
   }
   .name-container {
     font-size: 1.2rem;
-    flex-direction: row;
     gap: 0.4rem;
   }
 }
