@@ -115,7 +115,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* ← NEW: force project links white */
+/* Force project links white */
 .project-card a {
   color: #ffffff;
   text-decoration: none;
@@ -196,22 +196,21 @@ footer {
   .project-card p {
     font-size: 0.9rem;
   }
+  /* make social icons horizontal on small phones */
   .social-icons {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
   }
 }
 
 /* ─── Mobile-Only Nav / Hamburger (≤768px) ─── */
 @media (max-width: 768px) {
-  /* keep header in a single row */
   header.top-bar {
     flex-direction: row;
     align-items: center;
     padding: 1rem 1.5rem;
   }
 
-  /* anchor everything */
   .profile-nav-wrapper {
     position: relative;
     display: flex;
@@ -220,7 +219,6 @@ footer {
     width: 100%;
   }
 
-  /* show & pin the hamburger icon */
   .menu-toggle {
     display: block;
     position: absolute;
@@ -230,7 +228,6 @@ footer {
     z-index: 1000;
   }
 
-  /* hide links by default, drop just under the wrapper */
   .nav-links {
     display: none;
     position: absolute;
@@ -245,12 +242,10 @@ footer {
     z-index: 999;
   }
 
-  /* reveal when toggled */
   .nav-links.show {
     display: flex;
   }
 
-  /* shrink profile pic & name */
   .profile {
     gap: 0.5rem;
   }
