@@ -260,7 +260,7 @@ footer {
 }
 
 
-  @media (max-width: 768px) {
+ @media (max-width: 768px) {
     .profile-nav-wrapper {
       display: flex;
       justify-content: space-between;
@@ -269,6 +269,31 @@ footer {
       position: relative;
     }
 
+   .nav-links {
+    position: absolute;
+    top: 1rem;           /* 16px from top of wrapper */
+    right: 1rem;         /* 16px from right edge */
+    background: #0b1c2d;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: none;       /* hidden until toggled */
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;       /* revealed by your JS */
+  }
+
+  .menu-toggle {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 1000;       /* stays above the menu */
+  }
+} 
     .profile {
       flex-direction: row;
       align-items: center;
@@ -298,3 +323,4 @@ footer {
       right: 10px;
     }
   }
+  
