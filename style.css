@@ -1,276 +1,242 @@
-/* Base Reset */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #0b1c2d;
-  color: #ffffff;
+/* ────────────────────────────────────────────────────
+   Efficient, Mobile-First CSS Structure for VS Code
+─────────────────────────────────────────────────── */
+
+/* ─── 1. VARIABLES ───────────────────────────────── */
+:root {
+  /* Colors */
+  --bg:            #0b1c2d;
+  --fg:            #ffffff;
+  --accent:        #1da1f2;
+
+  /* Typography */
+  --font-base:     'Poppins', sans-serif;
+  --text-sm:       0.9rem;
+  --text-md:       1rem;
+  --text-lg:       2rem;
+  --text-xl:       2.5rem;
+
+  /* Spacing */
+  --space-xs:      0.5rem;
+  --space-sm:      1rem;
+  --space-md:      2rem;
+  --space-lg:      3rem;
+
+  /* Misc */
+  --header-pad:    var(--space-md) var(--space-lg);
+  --border-radius: 6px;
 }
 
-/* Header/Profile */
-.top-bar {
-  display: flex;
+/* ─── 2. BASE & TYPOGRAPHY ───────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+/* ─── 3. UTILITIES ───────────────────────────────── */
+.flex        { display: flex; }
+.grid        { display: grid; }
+.center      { justify-content: center; align-items: center; }
+.mt-lg       { margin-top: var(--space-lg); }
+.p-md        { padding: var(--space-md); }
+.gap-sm      { gap: var(--space-sm); }
+.gap-md      { gap: var(--space-md); }
+
+/* ─── 4. COMMON LINK STYLES ─────────────────────── */
+a,
+.nav-links a,
+.project-card a,
+.social-icons a {
+  color: var(--fg);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ─── 5. HEADER & PROFILE ───────────────────────── */
+header.top-bar {
+  @apply flex center;
   justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  background-color: #0b1c2d;
+  padding: var(--header-pad);
+  background: var(--bg);
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
 }
 
 .profile {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  @apply flex center gap-sm;
 }
 
 .profile-img {
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  border: 3px solid #1da1f2;
+  border: 3px solid var(--accent);
 }
 
 .name-container {
-  display: flex;
+  @apply flex center;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+  font-size: var(--text-lg);
   font-weight: bold;
-  gap: 0.5rem;
+  gap: var(--space-xs);
 }
 
-@media (min-width: 769px) {
-  .name-container {
-    font-size: 2.5rem;
-    gap: 1rem;
-  }
-}
-
-/* Navigation */
+/* ─── 6. NAVIGATION & HAMBURGER ─────────────────── */
 .nav-links {
   list-style: none;
-  display: flex;
-  gap: 2rem;
+  display: none;            /* mobile first */
+  gap: var(--space-md);
 }
 
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #1da1f2;
-}
-
-/* Hamburger (mobile) */
 .menu-toggle {
   font-size: 2rem;
   cursor: pointer;
+  color: var(--fg);
   display: none;
-  color: #ffffff;
 }
 
-/* Hero */
+/* ─── 7. HERO SECTION ───────────────────────────── */
 .hero {
   text-align: center;
   padding: 5rem 2rem;
-  background-color: #0b1c2d;
+  background: var(--bg);
 }
 
 .highlight {
-  color: #1da1f2;
+  color: var(--accent);
   font-weight: bold;
 }
 
 .cta {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: var(--space-sm);
   padding: 0.75rem 1.5rem;
-  background-color: #1da1f2;
-  color: #ffffff;
-  border-radius: 6px;
-  text-decoration: none;
+  background: var(--accent);
+  border-radius: var(--border-radius);
   font-weight: 600;
 }
 
-/* Projects */
+/* ─── 8. PROJECTS GRID ──────────────────────────── */
 #projects {
   padding: 4rem 2rem;
   text-align: center;
-  background-color: #112b45;
+  background: #112b45;
 }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
 }
 
 .project-card {
-  background-color: #183a58;
-  padding: 1.5rem;
+  background: #183a58;
+  padding: var(--space-md);
   border: 1px solid #29557b;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.project-card a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.project-card a:hover {
-  color: #1da1f2;
-}
-
-/* Footer & Socials */
+/* ─── 9. FOOTER & SOCIAL ICONS ─────────────────── */
 footer {
-  background-color: #0b1c2d;
+  background: var(--bg);
   padding: 3rem 2rem 2rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: #ffffff;
+  font-size: var(--text-sm);
   position: relative;
   z-index: 10;
 }
 
 .social-icons {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  margin-top: var(--space-md);
+  @apply flex center gap-md;
   animation: fadeUp 1s ease-out forwards;
 }
 
 .social-icons a {
   font-size: 2.2rem;
-  color: #ffffff;
-  transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
-  color: #1da1f2;
-}
-
-/* Keyframe */
+/* ─── 10. ANIMATIONS ─────────────────────────────── */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Hero Tweaks */
-@media (max-width: 768px) {
-  .hero {
-    padding: 3rem 1rem;
-  }
-  .hero h2 {
-    font-size: 1.5rem;
-  }
-  .hero h3 {
-    font-size: 1.2rem;
-  }
-  .cta {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-}
+/* ─── 11. RESPONSIVE OVERIDES ────────────────────── */
 
-/* Tiny Phone Projects */
+/* Tiny phones */
 @media (max-width: 480px) {
-  #projects {
-    padding: 2rem 1rem;
-  }
+  #projects    { padding: 2rem 1rem; }
   .project-card {
     padding: 1rem;
   }
-  .project-card h3 {
-    font-size: 1.2rem;
-  }
-  .project-card p {
-    font-size: 0.9rem;
-  }
-  .social-icons {
-    flex-direction: row;
-    gap: 1rem;
-  }
+  .project-card h3 { font-size: 1.2rem; }
+  .project-card p  { font-size: 0.9rem; }
+  .social-icons    { gap: var(--space-sm); }
 }
 
-/* Mobile Nav */
+/* Mobile (<=768px) */
 @media (max-width: 768px) {
   header.top-bar {
     flex-direction: row;
-    align-items: center;
     padding: 1rem 1.5rem;
-  }
-  .profile-nav-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
   }
   .menu-toggle {
     display: block;
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: var(--space-md);
     transform: translateY(-50%);
     z-index: 1000;
   }
   .nav-links {
-    display: none;
     position: absolute;
-    top: calc(100% + 0.5rem);
-    right: 1rem;
-    background-color: #0b1c2d;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    top: calc(100% + var(--space-xs));
+    right: var(--space-md);
+    display: none;
     flex-direction: column;
-    gap: 0.75rem;
-    z-index: 999;
+    background: var(--bg);
+    padding: var(--space-sm);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   }
-  .nav-links.show {
-    display: flex;
-  }
-  .profile {
-    gap: 0.5rem;
-  }
-  .profile-img {
-    width: 50px;
-    height: 50px;
-  }
-  .name-container {
-    font-size: 1.2rem;
-    gap: 0.4rem;
-  }
+  .nav-links.show { display: flex; }
+  .profile-img     { width: 50px; height: 50px; }
+  .name-container  { font-size: var(--text-md); gap: var(--space-xs); }
+  .hero            { padding: 3rem 1rem; }
+  .cta             { font-size: var(--text-sm); padding: 0.5rem 1rem; }
 }
 
-/* ─── Desktop-Only Nav Reposition & Enlarge (≥769px) ─── */
+/* Desktop (>=769px) */
 @media (min-width: 769px) {
-  header.top-bar {
-    position: relative; /* allow absolute children */
+  .name-container {
+    font-size: var(--text-xl);
+    gap: var(--space-sm);
   }
-
   .nav-links {
+    display: flex;
     position: absolute;
     top: 50%;
-    right: 2rem;                /* adjust to match your marked position */
+    right: 2rem;               /* tweak to match your design */
     transform: translateY(-50%);
-    display: flex;
-    gap: 3rem;
+    gap: var(--space-lg);
   }
-
   .nav-links a {
     font-size: 1.5rem;
     font-weight: 600;
