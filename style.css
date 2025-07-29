@@ -115,6 +115,18 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/* ← NEW: force project links white */
+.project-card a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.project-card a:hover {
+  color: #1da1f2;
+}
+
 /* Footer & Socials */
 footer {
   background-color: #0b1c2d;
