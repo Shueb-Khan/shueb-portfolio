@@ -14,6 +14,11 @@ body {
   padding: 1.5rem 2rem;
   background-color: #0b1c2d;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+  /* make header sticky */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .profile {
@@ -256,16 +261,12 @@ footer {
   }
 }
 
-/* ─── Desktop-Only Nav Reposition & Enlarge (≥769px) ─── */
+/* Desktop-Only Nav (≥769px) */
 @media (min-width: 769px) {
-  header.top-bar {
-    position: relative; /* allow absolute children */
-  }
-
   .nav-links {
     position: absolute;
     top: 50%;
-    right: 2rem;                /* adjust to match your marked position */
+    right: 2rem;
     transform: translateY(-50%);
     display: flex;
     gap: 3rem;
@@ -276,3 +277,4 @@ footer {
     font-weight: 600;
   }
 }
+```
