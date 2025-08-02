@@ -207,9 +207,10 @@ footer {
     padding: 0.5rem 1rem;
   }
 
-  /* Adjust bullet lists: push left, leave space on right */
+  /* shift About Me list left and add right gap */
   #about ul {
     margin: 0 2rem 1.5rem 0;
+    padding-left: 0;
   }
 }
 
@@ -232,9 +233,10 @@ footer {
     gap: 1rem;
   }
 
-  /* Maintain extra right space on very small screens */
+  /* maintain right gap on very small screens */
   #about ul {
     margin: 0 1.5rem 1.5rem 0;
+    padding-left: 0;
   }
 }
 

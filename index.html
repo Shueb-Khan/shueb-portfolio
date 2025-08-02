@@ -113,28 +113,27 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
+      document.getElementById('navLinks').classList.toggle('show')
     }
   </script>
 
-<!-- Mobile‐only script: close the nav when tapping anywhere outside it -->
-<script>
-  ;['click','touchstart'].forEach(evt => {
-    document.addEventListener(evt, function(e) {
-      const nav    = document.getElementById('navLinks')
-      const toggle = document.querySelector('.menu-toggle')
-      // only on small screens, only if the menu is open, and click is outside both toggle button and nav list
-      if (window.innerWidth <= 768
-          && nav.classList.contains('show')
-          && !nav.contains(e.target)
-          && !toggle.contains(e.target)
-      ) {
-        nav.classList.remove('show')
-      }
+  <!-- Mobile‐only script: close the nav when tapping anywhere outside it -->
+  <script>
+    ;['click', 'touchstart'].forEach(evt => {
+      document.addEventListener(evt, function(e) {
+        const nav = document.getElementById('navLinks')
+        const toggle = document.querySelector('.menu-toggle')
+        if (
+          window.innerWidth <= 768 &&
+          nav.classList.contains('show') &&
+          !nav.contains(e.target) &&
+          !toggle.contains(e.target)
+        ) {
+          nav.classList.remove('show')
+        }
+      })
     })
-  })
-</script>
-
+  </script>
 
   <!-- WhatsApp Floating Button -->
   <a
